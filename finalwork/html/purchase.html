@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购置界面</title>
+    <link rel="stylesheet" href="../../jquery/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <div id="header">
+        <ul class="hList">
+            <li>
+                <a href="#" class="menu">
+                    <h2 class="menu-title" onclick="location='./index.html'">图书</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./bookList.html'">图书列表</li>
+                        <li onclick="location='./purchase.html'">购置图书，由你决定</li>
+                        <li onclick="location='./main.html'">点击我，显示更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_2nd">新闻</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./news.html'">公告</li>
+                        <li>实时新闻</li>
+                        <li>更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_3rd">评价</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./evaluate.html'">评价我们</li>
+                        <li>关注我们</li>
+                        <li>客官，赏个赞</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_4th">游戏</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./game.html'">文学小游戏</li>
+                        <li>play more</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="content">
+
+        <form method="post" action="">
+            <table id="tlogin">
+                <tr>
+                    <td colspan="2" align="center"><b>购置图书，由你决定</b></td>
+                </tr>
+                <tr>
+                    <td width="30%">昵称:</td>
+                    <td align="left"><input type="text" name="nickName" id="nickName" /></td>
+                </tr>
+                <tr>
+                    <td width="30%">图书名称:</td>
+                    <td align="left"><input type="text" name="bname" id="bname" /></td>
+                </tr>
+                <tr>
+                    <td width="30%">价格:</td>
+                    <td align="left"><input type="text" name="bprice" id="bprice" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="func">
+                        <input type="submit" value="提交" id="submit" />
+                        <input type="reset" value="重置" id="reset" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#submit,#reset").button();
+
+        $("#login").click(function () {
+            var nickName = $.trim($("#nickName").val());
+            var bname = $.trim($("#bname").val());
+            var bprice = $.trim($("#bprice").val());
+            if (nickName == "") {
+                alert("请输入用户名");
+                $("#nickName").focus();
+                return false;
+            } else if (bname == "") {
+                alert("请输入书名");
+                $("#bname").focus();
+                return false;
+            }else if(bprice == ""){
+                alert("请输入图书价格");
+                $("#bprice").focus();
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    "nickName": nickName,
+                    "bname":bname,
+                    "bprice":bprice
+                },
+                dataType: 'json',
+                success: function (msg) {
+                    if (msg == 1) {
+                        window.location.href = "";
+                    } else {
+                        alert("购买失败，请重试!");
+                    }
+                }
+            });
+        });
+    });
+</script>

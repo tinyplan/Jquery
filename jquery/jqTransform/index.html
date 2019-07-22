@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="表单美化,jqTransform" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<title>演示：jqTransform表单美化--Helloweba演示平台</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="jqtransform.css" />
+<style type="text/css">
+.demo{width:680px; margin:10px auto; color:#333; background:#fff}
+.page_title{width:680px; height:30px; margin:10px auto 0 auto; text-align:center; font-weight:bold;}
+form p{padding:4px; line-height:20px; clear:both}
+form p label{display:block; float:left; width:100px; padding-top:2px}
+</style>
+<script type="text/javascript" src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.jqtransform.js"></script>
+<script language="javascript">
+$(function(){
+	$('.jqtransform').jqTransform();
+});
+</script>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+   <div class="demo_topad"><script src="/js/ad_js/demo_topad.js" type="text/javascript"></script></div>
+</div>
+
+<div id="main">
+  <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-48.html">jqTransform：呈现更美的表单</a></h2>
+<div class="page_title">未使用jqtransform的效果：</div>
+<div class="demo">
+<form action="#" method="post">
+    <p><label>用户名：</label><input type="text" /></p>
+    <p><label>密码：</label><input type="password" /></p>
+    <p><label>性别：</label><input type="radio" name="sex" /> 男 <input type="radio" name="sex" /> 女 </p>
+    <p><label>学历：</label>
+     <select>
+        <option value="1">博士</option>
+        <option value="2">硕士</option>
+        <option value="3">大学本科</option>
+        <option value="4">大专</option>
+        <option value="5">中技</option>
+     </select>
+    </p>
+    <p><label>短信订阅：</label><input type="checkbox" /> 开通短信订阅功能</p>
+    <p><label>备注：</label>
+    <textarea name="note" rows="6" cols="40"></textarea>
+    </p>
+    <p><label>&nbsp;</label><input type="submit" value="提 交" /></p>
+</form>
+</div>
+
+<div class="page_title">使用jqtransform后的效果：</div>
+<div class="demo">
+<form class="jqtransform" action="#" method="post">
+    <p><label>用户名：</label><input type="text" /></p>
+    <p><label>密码：</label><input type="password" /></p>
+    <p><label>性别：</label><input type="radio" name="sex" /> <label style="width:auto">男</label> <input type="radio" name="sex" /> <label style="width:auto">女</label> </p>
+    <p><label>学历：</label>
+     <select>
+        <option value="1">博士</option>
+        <option value="2">硕士</option>
+        <option value="3">大学本科</option>
+        <option value="4">大专</option>
+        <option value="5">中技</option>
+     </select>
+    </p>
+    <p><label>短信订阅：</label><input type="checkbox" />  <label>开通短信订阅功能</label></p>
+    <p><label>备注：</label>
+    <textarea name="note" rows="6" cols="40"></textarea>
+    </p>
+    <p><label>&nbsp;</label><input type="submit" value="提交" /> <input type="reset" value="重置" /></p>
+</form>
+</div>
+
+<div class="ad_demo"><script src="/js/ad_js/ad_demo.js" type="text/javascript"></script></div>
+</div>
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+<p id="stat"><script type="text/javascript" src="/js/tongji.js"></script></p>
+</body>
+</html>

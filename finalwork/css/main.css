@@ -1,0 +1,37 @@
+#banner {
+    width: 1000px;
+    height: 80px;
+    background-color: #8f71ff;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#banner>b {
+    color: #fdcb6e;
+    font-size: 30px;
+}
+
+#main {
+    width: 1000px;
+    background-color: silver;
+    margin: 5px auto;
+}
+
+#accordion,
+#tabs {
+    float: left
+}
+
+#accordion {
+    width: 20%;
+}
+
+#tabs {
+    width: 78%;
+    margin: 0px 3px
+}
+
+#accordion p {
+    cursor: pointer
+}

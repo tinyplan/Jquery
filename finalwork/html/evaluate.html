@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评价界面</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <style type="text/css">
+        body {
+            height: 740px;
+            background-image: url("../image/index_bg.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        #content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 175px;
+        }
+
+        #tlogin {
+            width: 400px;
+            height: 200px;
+            line-height: 30px;
+        }
+        form{
+            color: #10eaf0;
+            font-size: 20px;
+        }
+
+        #header {
+            margin-left: 450px;
+        }
+
+        #func{
+            padding-left:350px;
+        }
+        #form_title{
+            margin-left:150px;
+            font-size: 30px;
+        }
+        #nickName{
+            height: 30px;
+            width:250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <ul class="hList">
+            <li>
+                <a href="#" class="menu">
+                    <h2 class="menu-title" onclick="location='./index.html'">图书</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./bookList.html'">图书列表</li>
+                        <li onclick="location='./purchase.html'">购置图书，由你决定</li>
+                        <li onclick="location='./main.html'">点击我，显示更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_2nd">新闻</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./news.html'">公告</li>
+                        <li>实时新闻</li>
+                        <li>更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_3rd">评价</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./evaluate.html'">评价我们</li>
+                        <li>关注我们</li>
+                        <li>客官，赏个赞</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_4th">游戏</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./game.html'">文学小游戏</li>
+                        <li>play more</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="content">
+
+        <form method="post" action="" id="form_advice">
+            <p><label id="form_title">评价我们</label></p>
+            <p>
+                <label>昵称:</label>
+                <input type="text" name="nickName" id="nickName"/>
+            </p>
+            <p>
+                <label>建议:</label>
+                <textarea cols="40" rows="20" name="advice" id="advice"></textarea>
+            </p>
+            <p div="func">
+                <label></label>
+                <input type="submit" value="提交" id="submit" />
+                <input type="reset" value="重置" id="reset" />
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../../jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="../../jquery/jquery-ui-1.12.1/jquery-ui.min.css">
+<link rel="stylesheet" href="../../jquery/jqTransform/jqtransform.css">
+<script type="text/javascript" src="../../jquery/jqTransform/jquery.jqtransform.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#submit,#reset").button();
+
+        $("#submit").click(function () {
+            var nickName = $.trim($("#nickName").val());
+            if (nickName == "") {
+                alert("请输入用户名");
+                $("#nickName").focus();
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "",
+                data: {
+                    "nickName": nickName,
+                },
+                dataType: 'json',
+                success: function (msg) {
+                    if (msg == 1) {
+                        window.location.href = "";
+                    } else {
+                        alert("评价提交失败，请重试!");
+                    }
+                }
+            });
+        });
+
+        $("form_advice").jqTransform();
+
+    });
+</script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新闻</title>
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
+    <style type="text/css">
+        #header {
+            margin-left: 450px;
+        }
+
+        #newslist {
+            width: 1000px;
+            position: absolute;
+            top: 100px;
+            left: 250px;
+            border: 3px solid rgb(150, 15, 15);
+            text-align: center;
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        td {
+            padding-top: 10px;
+            border: 3px solid rgb(150, 15, 15);
+        }
+
+        tr:nth-child(n+2):nth-child(odd):nth-child(-n+12) {
+            background-color: #bdf2d5;
+        }
+
+        tr:nth-child(n+2):nth-child(even):nth-child(-n+12) {
+            background-color: #f6f6f6;
+        }
+
+        tr:first-child {
+            background-color: #7ad9f5;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({
+                url:"../news.json",
+                type:"GET",
+                dataType:"json",
+                success:function(data){
+                    $.each(data.news,function(id,val){
+                        var $tr = "<tr><td>"+val.id+"</td><td><a href='"+ val.url+"'>"+ val.title +"</a></td></tr>";
+                        $("#newslist").append($tr);
+                    })
+                }
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <ul class="hList">
+            <li>
+                <a href="#" class="menu">
+                    <h2 class="menu-title" onclick="location='./index.html'">图书</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./bookList.html'">图书列表</li>
+                        <li onclick="location='./purchase.html'">购置图书，由你决定</li>
+                        <li onclick="location='./main.html'">点击我，显示更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_2nd">新闻</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./news.html'">公告</li>
+                        <li>实时新闻</li>
+                        <li>更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_3rd">评价</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./evaluate.html'">评价我们</li>
+                        <li>关注我们</li>
+                        <li>客官，赏个赞</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_4th">游戏</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./game.html'">文学小游戏</li>
+                        <li>play more</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <table id="newslist">
+        <tr>
+            <td width="20%">编号</td>
+            <td>新闻</td>
+        </tr>
+    </table>
+</body>
+
+</html>

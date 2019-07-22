@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页面</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="../../jquery/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <script src="../../jquery/jquery-3.3.1.js"></script>
+    <script src="../../jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+</head>
+
+
+<body>
+    <div id="dialog" title="删除确认">
+        <p>确定要删除吗？</p>
+    </div>
+    <div id="banner">
+        <b>我的图书管理系统</b>
+    </div>
+    <div id="main">
+        <!-- 手风琴 -->
+        <div id="accordion">
+            <h3>系统管理</h3>
+            <div>
+                <p id="role">个人信息</p>
+                <p id="pms">修改密码</p>
+                <p id="data">修改个人信息</p>
+            </div>
+            <h3>图书管理</h3>
+            <div>
+                <p id="all">全部图书</p>
+                <p id="borrow">借书列表</p>
+                <p id="breturn">还书列表</p>
+            </div>
+            <!-- <h3>其他信息</h3>
+            <div>
+                <p>入库管理</p>
+                <p>出库管理</p>
+                <p>货品盘存</p>
+            </div> -->
+        </div>
+        <!-- 选项卡 -->
+        <div id="tabs">
+            <ul>
+                <li id="sysTab"><a href="#sysTabPage">欢迎页</a></li>
+            </ul>
+            <div id="sysTabPage">Welcome!</div>
+        </div>
+    </div>
+</body>
+
+</html>

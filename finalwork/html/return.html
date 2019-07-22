@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>还书</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../jquery/jquery.tablednd_0_5.js"></script>
+    <script type="text/javascript" src="../../jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <style type="text/css">
+        #header {
+            margin-left: 450px;
+        }
+
+        #list {
+            width: 1000px;
+            position: absolute;
+            top: 100px;
+            left: 250px;
+            border: 3px solid rgb(150, 15, 15);
+            text-align: center;
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        td {
+            padding-top: 10px;
+            border: 3px solid rgb(150, 15, 15);
+        }
+
+        tr:nth-child(n+2):nth-child(odd):nth-child(-n+12) {
+            background-color: #bdf2d5;
+        }
+
+        tr:nth-child(n+2):nth-child(even):nth-child(-n+12) {
+            background-color: #f6f6f6;
+        }
+
+        tr:first-child {
+            background-color: #7ad9f5;
+        }
+
+        #nav {
+            text-align: center;
+        }
+
+        /*
+        #tablePagination{
+            text-align: center;
+            font-size: 12px;
+            margin: 6px auto;
+            height: 20xp;
+            line-height: 20px;
+        } */
+    </style>
+    <script type="text/javascript">
+        var id;
+        var name;
+        var author;
+        var pub;
+        var price;
+        $(function () {
+            $.ajax({
+                url: "../book.json", //json文件位置
+                type: "GET", //请求方式为get
+                dataType: "json", //返回数据格式为json
+                success: function (data) { //请求成功完成后要执行的方法 
+                    //each循环 使用$.each方法遍历返回的数据date
+                    $.each(data.breturn, function (i, item) {
+                        var str = "<tr><td>" + item.id +
+                            "</td><td>" + item.name +
+                            "</td><td>" + item.author +
+                            "</td><td>" + item.pub +
+                            "</td><td>" + "已借出" +
+                            "</td><td><button id='return'>还书</button></td></tr>";
+                        $("#list").append(str);
+                    })
+                }
+            });
+
+            $("body").on("click","#return",function(){
+                var str = $(this).parent().prev().text();
+                if(str == "已还书"){
+                    alert("该图书已还");
+                }else{
+                    $(this).parent().prev().text("已还书");
+                }
+            });
+        });
+            
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <ul class="hList">
+            <li>
+                <a href="#" class="menu">
+                    <h2 class="menu-title" onclick="location='./index.html'">图书</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./bookList.html'">图书列表</li>
+                        <li onclick="location='./purchase.html'">购置图书，由你决定</li>
+                        <li  onclick="location='./main.html'">点击我，显示更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_2nd">新闻</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./news.html'">公告</li>
+                        <li>实时新闻</li>
+                        <li>更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_3rd">评价</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./evaluate.html'">评价我们</li>
+                        <li>关注我们</li>
+                        <li>客官，赏个赞</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_4th">游戏</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./game.html'">文学小游戏</li>
+                        <li>play more</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <table id="list">
+        <tr>
+            <td>书号</td>
+            <td>书名</td>
+            <td>作者</td>
+            <td>出版社</td>
+            <td>状态</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</body>
+
+</html>

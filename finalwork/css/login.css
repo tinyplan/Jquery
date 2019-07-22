@@ -1,0 +1,54 @@
+
+body {
+    height: 740px;
+    background-image: url("../image/index_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 225px;
+}
+
+#tlogin {
+    width: 400px;
+    height: 200px;
+    line-height: 30px;
+}
+
+tr {
+    color: black;
+    text-align: right;
+}
+
+#func {
+    text-align: center;
+}
+
+#nickName {
+    height: 30px;
+    width: 200px;
+}
+#password{
+    height: 30px;
+    width: 200px;
+}
+#name{
+    height: 30px;
+    width: 200px;
+}
+#datePicker{
+    height: 30px;
+    width: 200px;
+}
+#recheck{
+    height: 30px;
+    width: 200px;
+}
+
+#header {
+    margin-left: 450px;
+}

@@ -1,0 +1,8 @@
+{
+    "admin":[
+        {"id":"001","name":"Mike","nickName":"1232","birth":"231","gender":"男","password":"123456"},
+        {"id":"002","name":"John","nickName":"1232","birth":"231","gender":"男","password":"123456"},
+        {"id":"003","name":"Amy","nickName":"1232","birth":"231","gender":"女","password":"123456"},
+        {"id":"004","name":"York","nickName":"1232","birth":"231","gender":"男","password":"123456"}
+    ]
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>还书</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reset.min.css">
+    <script type="text/javascript" src="../../jquery/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../jquery/jquery.tablednd_0_5.js"></script>
+    <script type="text/javascript" src="../../jquery/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../css/borrow.css">
+    <script type="text/javascript" src="../js/borrow.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <ul class="hList">
+            <li>
+                <a href="#" class="menu">
+                    <h2 class="menu-title" onclick="location='./index.html'">图书</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./bookList.html'">图书列表</li>
+                        <li onclick="location='./purchase.html'">购置图书，由你决定</li>
+                        <li onclick="location='./main.html'">点击我，显示更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_2nd">新闻</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./news.html'">公告</li>
+                        <li>实时新闻</li>
+                        <li>更多</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_3rd">评价</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./evaluate.html'">评价我们</li>
+                        <li>关注我们</li>
+                        <li>客官，赏个赞</li>
+                    </ul>
+                </a>
+            </li>
+            <li>
+                <a href="#click" class="menu">
+                    <h2 class="menu-title menu-title_4th">游戏</h2>
+                    <ul class="menu-dropdown">
+                        <li onclick="location='./game.html'">文学小游戏</li>
+                        <li>play more</li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <table id="list">
+        <tr>
+            <td colspan="6"><label id="info">您已借阅0本图书</label></td>
+        </tr>
+        <tr>
+            <td>书号</td>
+            <td>书名</td>
+            <td>作者</td>
+            <td>出版社</td>
+            <td>状态</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</body>
+
+</html>
